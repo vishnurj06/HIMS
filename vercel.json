@@ -1,8 +1,0 @@
-{
-    "framework": "nextjs",
-    "buildCommand": "npx prisma generate && next build",
-    "installCommand": "npm ci --no-audit --no-fund",
-    "regions": [
-        "bom1"
-    ]
-}
