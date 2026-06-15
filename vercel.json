@@ -4,19 +4,5 @@
     "installCommand": "npm ci --no-audit --no-fund",
     "regions": [
         "bom1"
-    ],
-    "crons": [
-        {
-            "path": "/api/mis/worker",
-            "schedule": "* * * * *"
-        },
-        {
-            "path": "/api/cron/mis-scheduled-delivery",
-            "schedule": "30 1 * * *"
-        },
-        {
-            "path": "/api/cron/mis-rollup",
-            "schedule": "30 18 * * *"
-        }
     ]
 }
