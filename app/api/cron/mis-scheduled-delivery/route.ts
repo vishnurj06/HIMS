@@ -94,7 +94,7 @@ export async function GET(req: Request) {
                 );
 
                 // Compute next_run_at
-                const interval = cronParser.parse(schedule.cron_spec);
+                const interval = cronParser.parseExpression(schedule.cron_spec, { tz: 'Asia/Kolkata' });
                 const nextRunAt = interval.next().toDate();
 
                 // Update schedule success
@@ -117,7 +117,7 @@ export async function GET(req: Request) {
                 // Calculate next run so it doesn't just immediately retry infinitely
                 let nextRunAt = null;
                 try {
-                    const interval = cronParser.parse(schedule.cron_spec);
+                    const interval = cronParser.parseExpression(schedule.cron_spec, { tz: 'Asia/Kolkata' });
                     nextRunAt = interval.next().toDate();
                 } catch (e) {
                     // Fallback to null

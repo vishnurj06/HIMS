@@ -692,7 +692,7 @@ export async function saveSchedule(data: {
   // Calculate first run
   const cronParser = require('cron-parser');
   const parseCron = cronParser.parseExpression || (cronParser.default && cronParser.default.parse) || cronParser.parse;
-  const interval = parseCron(data.cron_spec);
+  const interval = parseCron(data.cron_spec, { tz: 'Asia/Kolkata' });
   const nextRunAt = interval.next().toDate();
 
   const schedule = await prisma.reportSchedule.create({
